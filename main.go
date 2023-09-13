@@ -19,7 +19,7 @@ func Short(url, api_key string) (ShortResponse, error) {
 	apiUrl := "https://n9.cl/api/short"
 
 	requesetData := map[string]string{
-		"api_key": api_key,
+		"apikey": api_key,
 		"url":     url,
 	}
 

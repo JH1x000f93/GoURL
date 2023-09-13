@@ -7,6 +7,11 @@ import (
 	"net/http"
 )
 
+type ShortRequest struct {
+	URL    string `json:"url"`
+	APIKey string `json:"apikey"`
+}
+
 type ShortResponse struct {
 	Status    string `json:"status"`
 	Permalink string `json:"permalink,omitempty"`
@@ -18,17 +23,17 @@ type ShortResponse struct {
 func Short(url, api_key string) (ShortResponse, error) {
 	apiUrl := "https://n9.cl/api/short"
 
-	requesetData := map[string]string{
-		"apikey": api_key,
-		"url":     url,
+	requestData := ShortRequest{
+		URL:    url,
+		APIKey: api_key,
 	}
 
-	requesetBody, err := json.Marshal(requesetData)
+	requestBody, err := json.Marshal(requestData)
 	if err != nil {
 		return ShortResponse{}, err
 	}
 
-	response, err := http.Post(apiUrl, "application/json", bytes.NewBuffer(requesetBody))
+	response, err := http.Post(apiUrl, "application/json", bytes.NewBuffer(requestBody))
 	if err != nil {
 		return ShortResponse{}, err
 	}

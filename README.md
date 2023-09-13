@@ -25,7 +25,7 @@ func main(){
 
     shortResponse, err := GoUrl.Short(url, apiKey)
     if err != nil {
-        fmt.Fatal("Error:", err)
+        fmt.Fatal(err)
     }
 
     if shortResponse.Status == "OK" {

@@ -1,4 +1,4 @@
-package GoUrl
+package GoURL
 
 import (
 	"bytes"
@@ -14,7 +14,7 @@ type ShortResponse struct {
 	Info      string `json:"info,omitempty"`
 }
 
-// ShortURL("https://example.com/long", "678GHJghj78IG0osh7GJi7hmK")
+// Short("https://example.com/long", "678GHJghj78IG0osh7GJi7hmK")
 func Short(url, api_key string) (ShortResponse, error) {
 	apiUrl := "https://n9.cl/api/short"
 
@@ -42,6 +42,6 @@ func Short(url, api_key string) (ShortResponse, error) {
 		}
 		return short, nil
 	} else {
-		return ShortResponse{}, fmt.Errorf("Error: Status code %d", response.StatusCode)
+		return ShortResponse{}, fmt.Errorf("Status code %d", response.StatusCode)
 	}
 }

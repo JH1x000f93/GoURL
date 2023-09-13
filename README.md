@@ -6,6 +6,9 @@ GoUrl es un paquete en Go diseñado para acortar URLs utilizando un servicio de 
 
 Para utilizar este paquete, primero importa el paquete `GoUrl` en tu proyecto:
 
+```shell
+go get github.com/JH1x000f93/GoURL
+```
 ```go
 import "github.com/JH1x000f93/GoURL"
 ```
